@@ -1,7 +1,6 @@
 package com.zhangjf.nettytest;
 
 import java.net.InetSocketAddress;
-import java.nio.channels.Channels;
 import java.util.concurrent.Executors;
 
 import org.jboss.netty.bootstrap.ServerBootstrap;
@@ -9,6 +8,7 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;
 import org.jboss.netty.channel.ChannelStateEvent;
+import org.jboss.netty.channel.Channels;
 import org.jboss.netty.channel.SimpleChannelHandler;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 
@@ -33,8 +33,7 @@ public class HelloServer {
       bootstrap.bind(new InetSocketAddress(8000));  
   }  
 
-  private static class HelloServerHandler extends  
-          SimpleChannelHandler {  
+  private static class HelloServerHandler extends SimpleChannelHandler {  
 
       /** 
        * 当有客户端绑定到服务端的时候触发，打印"Hello world, I'm server." 
@@ -43,9 +42,7 @@ public class HelloServer {
        * @author lihzh 
        */  
       @Override  
-      public void channelConnected(  
-              ChannelHandlerContext ctx,  
-              ChannelStateEvent e) {  
+      public void channelConnected(ChannelHandlerContext ctx,ChannelStateEvent e) {  
           System.out.println("Hello world, I'm server.");  
       }  
   }  
