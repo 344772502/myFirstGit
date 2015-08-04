@@ -1,6 +1,6 @@
 package com.zhangjf.enumtest;
 
-import java.util.List;
+import net.sf.json.JSONArray;
 
 public class EnumTest {
 	public static void main(String[] args) {
@@ -13,10 +13,8 @@ public class EnumTest {
         int id1 = EnumUtil.enumOf(UserType.class, "π‹¿Ì‘±").getId();
         System.out.println("name1:"+name1);
         System.out.println("id1:"+id1);
-        
-        List<UserType> list = EnumUtil.enumOf(UserType.class);
-        for (int i = 0; i < list.size(); i++) {
-          System.out.println(list.get(i).getId()+":"+list.get(i).getName());
-        }
+       
+        JSONArray jsonArr = EnumUtil.enumOf(UserType.class);
+        System.out.println(jsonArr);
 	}
 }

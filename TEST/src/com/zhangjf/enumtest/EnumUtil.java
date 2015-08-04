@@ -1,7 +1,7 @@
 package com.zhangjf.enumtest;
 
-import java.util.ArrayList;
-import java.util.List;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 public class EnumUtil {
 	
@@ -45,14 +45,16 @@ public class EnumUtil {
 		return result;
 	}
 	
-	public static <T extends ICodeEnum> List<T> enumOf(Class<T> enumClass) {
-      List<T> list = new ArrayList<T>();
+	public static <T extends ICodeEnum> JSONArray enumOf(Class<T> enumClass) {
+      JSONArray jsonArr = new JSONArray();
       for (T e : enumClass.getEnumConstants()) {
-             list.add(e);
+          JSONObject json = new JSONObject();
+          json.put(e.getId(), e.getName());
+          jsonArr.add(json);
       }
-      if (list.size()==0) {
+      if (jsonArr.size()==0) {
           System.out.println("无该类枚举:"+enumClass);
       }
-      return list;
+      return jsonArr;
   }
 }
