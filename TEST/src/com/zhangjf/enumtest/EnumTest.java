@@ -7,7 +7,7 @@ public class EnumTest {
 		String name = EnumUtil.enumOf(SexType.class, 0).getName();
 		int id = EnumUtil.enumOf(SexType.class, "ƒ–").getId();
 		System.out.println("name:"+name);
-		System.out.println("id:"+id);
+		System.out.println("id :"+id);
 		
 		String name1 = EnumUtil.enumOf(UserType.class, -2).getName();
         int id1 = EnumUtil.enumOf(UserType.class, "π‹¿Ì‘±").getId();
